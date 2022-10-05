@@ -1,9 +1,12 @@
+const Employee = require("./employee");
+
 class Manager {
-    constructor(name, id, email) {
+    constructor(name, id, email, officeNumber) {
         this.name = name;
         this.id = id;
         this.email = email;
         this.role = "Manager";
+        this.officeNumber = officeNumber;
     }
     getName() {
         return this.name

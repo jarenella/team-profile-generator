@@ -1,9 +1,12 @@
-class Intern {
-    constructor(name, id, email) {
+const Employee = require("./employee");
+
+class Intern extends Employee {
+    constructor(name, id, email, school) {
         this.name = name;
         this.id = id;
         this.email = email;
         this.role = "Intern";
+        this.school = school;
     }
     getName() {
         return this.name
@@ -16,6 +19,9 @@ class Intern {
     }
     getRole() {
         return this.role
+    }
+    getSchool() {
+        return this.school
     }
 }
 
