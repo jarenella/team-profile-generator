@@ -1,0 +1,1 @@
+const Intern = require("../class-lib/intern.js");
