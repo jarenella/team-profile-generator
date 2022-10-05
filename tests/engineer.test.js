@@ -1,1 +1,1 @@
-const Engineer = require("../class-lib/engineer.js");
+const Engineer = require("../lib/engineer.js");

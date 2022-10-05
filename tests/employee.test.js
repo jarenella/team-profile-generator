@@ -1,1 +1,1 @@
-const Employee = require("../class-lib/employee");
+const Employee = require("../lib/employee");
