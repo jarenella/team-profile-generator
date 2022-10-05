@@ -1,5 +1,5 @@
 body {
-    background-color: dimgray;
+    background-color: rgb(66, 66, 66);
 }
 
 #header {
@@ -9,4 +9,17 @@ body {
     font-size: 50px;
     padding-top:40px;
     padding-bottom:40px;
+}
+
+.card {
+    background-color:rgb(54, 54, 54);
+}
+
+.card-text {
+    color: aliceblue;
+}
+
+.card-header {
+    color:aliceblue;
+    background-color:rgb(31, 30, 30);
 }
