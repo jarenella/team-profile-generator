@@ -1,9 +1,14 @@
+//importing dependencies
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Employee = require("./lib/employee.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
+
+//arrays that all new created instances of classes will be pushed on to
+const engineers = [];
+const interns = [];
 
 inquirer.prompt([
     {
@@ -81,6 +86,7 @@ function addEmployees() {
         }
         else {
             //generate the HTML document
+            console.log(interns);
         }
     })
 }
@@ -117,6 +123,7 @@ function addNewEngineer() {
         const engineerGitHub = val.gitHub;
         const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerGitHub);
         console.log(engineer); //test console log
+        engineers.push(engineer); //adds this new engineer to the array of all engineers
         addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
@@ -153,6 +160,7 @@ function addNewIntern() {
         const internSchool = val.school;
         const intern = new Intern(internName, internID, internEmail, internSchool);
         console.log(intern); //test console log
+        interns.push(intern); //adds this new intern to the array of all interns
         addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
