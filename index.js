@@ -17,16 +17,17 @@ inquirer.prompt([
     const answer = val.menu;
     if (answer === 'Yes, add user') {
         //ask other questions
-        console.log("add user selected")
+        console.log("add user selected") //test console log (can be removed later)
         addTeamManager();
     }
     if (answer === 'No, end application') {
         // end app
-        console.log("end app selected")
+        console.log("App ended. Goodbye. Run 'node index' to start again")
     }
 })
 
 
+//function to run if there is not manager (must be done before adding teammates)
 function addTeamManager() {
     inquirer.prompt([
         {
@@ -56,10 +57,107 @@ function addTeamManager() {
         const managerEmail = val.email;
         const managerOfficeNumber = val.officeNumber;
         const manager = new Manager(managerName, managerID, managerEmail, managerOfficeNumber);
-        console.log(manager);
+        console.log(manager); //testing console log (can be removed later)
+        addEmployees();
+    })
+}
+
+
+function addEmployees() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "employeeType",
+            message: "What type of employee would you like to add?",
+            choices: ["Engineer", "Intern", "No more employees to add, generate my document"]
+        }
+    ])
+    .then(val => {
+        if (val.employeeType === "Engineer") {
+            addNewEngineer();
+        }
+        else if (val.employeeType === "Intern") {
+            addNewIntern();
+        }
+        else {
+            //generate the HTML document
+        }
+    })
+}
+
+
+//function to make a new engineer which is run if the user selects to add one
+function addNewEngineer() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Enter engineer name: ",
+        },
+        {
+            type: "input",
+            name: "ID",
+            message: "Enter engineer's ID: ",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Enter engineer's email: ",
+        },
+        {
+            type: "input",
+            name: "gitHub",
+            message: "Enter engineer's GitHub username: "
+        }
+    ])
+    .then(val => {
+        const engineerName = val.name;
+        const engineerID = val.ID;
+        const engineerEmail = val.email;
+        const engineerGitHub = val.gitHub;
+        const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerGitHub);
+        console.log(engineer); //test console log
+        addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
+    })
+}
+
+
+//function to make a new intern which is run if the user selects to add one
+function addNewIntern() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Enter intern name: ",
+        },
+        {
+            type: "input",
+            name: "ID",
+            message: "Enter intern's ID: ",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Enter engineer's email: ",
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "Enter interns's school: "
+        }
+    ])
+    .then(val => {
+        const internName = val.name;
+        const internID = val.ID;
+        const internEmail = val.email;
+        const internSchool = val.school;
+        const intern = new Intern(internName, internID, internEmail, internSchool);
+        console.log(intern); //test console log
+        addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
 
 
 
 
+//console.log(Manager.barry); console logs manager with name of barry
