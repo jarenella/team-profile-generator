@@ -14,15 +14,51 @@ inquirer.prompt([
     }
 ])
 .then(val => {
-    if (val == 'Yes, add user') {
+    const answer = val.menu;
+    if (answer === 'Yes, add user') {
         //ask other questions
+        console.log("add user selected")
+        addTeamManager();
     }
-    if (val == 'No, end application') {
+    if (answer === 'No, end application') {
         // end app
+        console.log("end app selected")
     }
 })
 
 
+function addTeamManager() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Before adding other members, you must add a manger. Enter manger name: "
+        },
+        {
+            type: "input",
+            name: "ID",
+            message: "Please enter manager's employee ID: "
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Manager's email adress: "
+        },
+        {
+            type: "input",
+            name: "officeNumber",
+            message: "Manager's office number: "
+        }
+    ])
+    .then(val => {
+        const managerName = val.name;
+        const managerID = val.ID;
+        const managerEmail = val.email;
+        const managerOfficeNumber = val.officeNumber;
+        const manager = new Manager(managerName, managerID, managerEmail, managerOfficeNumber);
+        console.log(manager);
+    })
+}
 
 
 
