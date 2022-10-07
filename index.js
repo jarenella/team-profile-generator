@@ -85,6 +85,7 @@ function addEmployees() {
         else if (val.employeeType === "Intern") {
             addNewIntern();
         }
+        //else statement for if the user chooses to generate the document
         else {
             //generates the HTML text for the engineers
             const engineersHTML = generateHTML(engineers);
@@ -92,6 +93,10 @@ function addEmployees() {
             //generates the HTML text for the interns
             const internsHTML = generateHTML(interns);
             console.log(internsHTML);
+            //combines all employee types HTML text
+            const HTML = internsHTML + engineersHTML;
+            //creates the document
+            fs.writeFile("index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
         }
     })
 }
