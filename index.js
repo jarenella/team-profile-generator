@@ -5,10 +5,12 @@ const Employee = require("./lib/employee.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
+const GenerateHTML = require("./lib/generatehtml");
 
 //arrays that all new created instances of classes will be pushed on to
 const engineers = [];
 const interns = [];
+module.exports = engineers;
 
 inquirer.prompt([
     {
@@ -85,8 +87,9 @@ function addEmployees() {
             addNewIntern();
         }
         else {
-            //generate the HTML document
-            console.log(interns);
+            //generates the HTML document
+
+            console.log(interns); //test console log
         }
     })
 }
@@ -122,8 +125,9 @@ function addNewEngineer() {
         const engineerEmail = val.email;
         const engineerGitHub = val.gitHub;
         const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerGitHub);
-        console.log(engineer); //test console log
+        //console.log(engineer); //test console log
         engineers.push(engineer); //adds this new engineer to the array of all engineers
+        console.log(engineers); //test console log
         addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
