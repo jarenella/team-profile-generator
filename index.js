@@ -26,7 +26,6 @@ inquirer.prompt([
     const answer = val.menu;
     if (answer === 'Yes, add user') {
         //ask other questions
-        console.log("add user selected") //test console log (can be removed later)
         addTeamManager();
     }
     if (answer === 'No, end application') {
@@ -66,7 +65,6 @@ function addTeamManager() {
         const managerEmail = val.email;
         const managerOfficeNumber = val.officeNumber;
         const manager = new Manager(managerName, managerID, managerEmail, managerOfficeNumber);
-        console.log(manager); //testing console log (can be removed later)
         managers.push(manager);
         addEmployees();
     })
@@ -95,10 +93,8 @@ function addEmployees() {
             const managerHTML = generateHTMLcards(managers);
             //generates the HTML text for the engineers
             const engineersHTML = generateHTMLcards(engineers);
-            console.log(engineersHTML);
             //generates the HTML text for the interns
             const internsHTML = generateHTMLcards(interns);
-            console.log(internsHTML);
             //combines all employee types into one HTML text block
             const cardsHTML = managerHTML + '\n' + internsHTML + '\n' + engineersHTML;
             //injects the HTML text for the cards into the full HTML document with the head, body, css linkups etc.
@@ -140,9 +136,7 @@ function addNewEngineer() {
         const engineerEmail = val.email;
         const engineerGitHub = val.gitHub;
         const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerGitHub);
-        //console.log(engineer); //test console log
         engineers.push(engineer); //adds this new engineer to the array of all engineers
-        console.log(engineers); //test console log
         addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
@@ -178,13 +172,7 @@ function addNewIntern() {
         const internEmail = val.email;
         const internSchool = val.school;
         const intern = new Intern(internName, internID, internEmail, internSchool);
-        console.log(intern); //test console log
         interns.push(intern); //adds this new intern to the array of all interns
         addEmployees(); //after an engineer is added, the user is asked again if they'd like to add any more new employees
     })
 }
-
-
-
-
-//console.log(Manager.barry); console logs manager with name of barry
