@@ -13,6 +13,7 @@ const engineers = [];
 const interns = [];
 const managers = [];
 
+//initial prompt of the user
 inquirer.prompt([
     {
         type: "list",
@@ -98,12 +99,12 @@ function addEmployees() {
             //generates the HTML text for the interns
             const internsHTML = generateHTMLcards(interns);
             console.log(internsHTML);
-            //combines all employee types HTML text
+            //combines all employee types into one HTML text block
             const cardsHTML = managerHTML + internsHTML + engineersHTML;
-            //injects the HTML text for the cards into the full HTML document with the head, body, etc.
+            //injects the HTML text for the cards into the full HTML document with the head, body, css linkups etc.
             const HTML = generateFullHTML(cardsHTML);
             //creates the document
-            fs.writeFile("./output/index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
+            fs.writeFile("./output/index.html", HTML, (err) => {err ? console.log(err) : console.log("Success. Your file has been created.")})
         }
     })
 }
