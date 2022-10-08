@@ -5,11 +5,12 @@ const Employee = require("./lib/employee.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
-const generateHTML = require("./lib/generatehtml");
+const generateHTMLcards = require("./lib/generatehtmlcards");
 
 //arrays that all new created instances of classes will be pushed on to
 const engineers = [];
 const interns = [];
+const managers = [];
 
 inquirer.prompt([
     {
@@ -64,6 +65,7 @@ function addTeamManager() {
         const managerOfficeNumber = val.officeNumber;
         const manager = new Manager(managerName, managerID, managerEmail, managerOfficeNumber);
         console.log(manager); //testing console log (can be removed later)
+        managers.push(manager);
         addEmployees();
     })
 }
@@ -87,14 +89,16 @@ function addEmployees() {
         }
         //else statement for if the user chooses to generate the document
         else {
+            //generates the HTML for the manager
+            const managerHTML = generateHTMLcards(managers);
             //generates the HTML text for the engineers
-            const engineersHTML = generateHTML(engineers);
+            const engineersHTML = generateHTMLcards(engineers);
             console.log(engineersHTML);
             //generates the HTML text for the interns
-            const internsHTML = generateHTML(interns);
+            const internsHTML = generateHTMLcards(interns);
             console.log(internsHTML);
             //combines all employee types HTML text
-            const HTML = internsHTML + engineersHTML;
+            const HTML = managerHTML + internsHTML + engineersHTML;
             //creates the document
             fs.writeFile("index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
         }
