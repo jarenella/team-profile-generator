@@ -100,7 +100,7 @@ function addEmployees() {
             const internsHTML = generateHTMLcards(interns);
             console.log(internsHTML);
             //combines all employee types into one HTML text block
-            const cardsHTML = managerHTML + internsHTML + engineersHTML;
+            const cardsHTML = managerHTML + '\n' + internsHTML + '\n' + engineersHTML;
             //injects the HTML text for the cards into the full HTML document with the head, body, css linkups etc.
             const HTML = generateFullHTML(cardsHTML);
             //creates the document
