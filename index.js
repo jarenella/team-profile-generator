@@ -103,7 +103,7 @@ function addEmployees() {
             //injects the HTML text for the cards into the full HTML document with the head, body, etc.
             const HTML = generateFullHTML(cardsHTML);
             //creates the document
-            fs.writeFile("index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
+            fs.writeFile("./output/index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
         }
     })
 }
