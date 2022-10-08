@@ -6,6 +6,7 @@ const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
 const generateHTMLcards = require("./lib/generatehtmlcards");
+const generateFullHTML = require("./lib/generateFullHTML");
 
 //arrays that all new created instances of classes will be pushed on to
 const engineers = [];
@@ -98,7 +99,9 @@ function addEmployees() {
             const internsHTML = generateHTMLcards(interns);
             console.log(internsHTML);
             //combines all employee types HTML text
-            const HTML = managerHTML + internsHTML + engineersHTML;
+            const cardsHTML = managerHTML + internsHTML + engineersHTML;
+            //injects the HTML text for the cards into the full HTML document with the head, body, etc.
+            const HTML = generateFullHTML(cardsHTML);
             //creates the document
             fs.writeFile("index.html", HTML, (err) => {err ? console.log(err) : console.log("success")})
         }
