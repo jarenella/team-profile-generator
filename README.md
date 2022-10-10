@@ -26,15 +26,15 @@ To install, simply clone the repository and install the related dependencies.
 
 # Usage Information
 
-To use, open the folder in an integrated terminal and run node index, then follow the instructions from the prompts.
+To use, open the folder in an integrated terminal and run node index, then follow the instructions from the prompts. Once complete, your file, named "index.html" will be generated in the "output" folder. Everything else in that folder is related to it's styling.
 
 # Contribution guidelines
 
 All contributions to this project are welcome. Send me a message if you have any questions.
 
-# Test instructions
+# Examples
 
-N/A
+Coming soon
 
 # License
     
