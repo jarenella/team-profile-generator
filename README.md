@@ -34,7 +34,13 @@ All contributions to this project are welcome. Send me a message if you have any
 
 # Examples
 
-Coming soon
+- A command line series of prompts a user will recieve while running this app.
+
+![A command line full of prompts asked by the app that have been filled in by the user](./imgs/command-line-prompts-screenshot.png)
+
+- A document generated from the answers to these prompts (More cards can be added).
+
+![alt text](./imgs/document-in-browser-screenshot.png)
 
 # License
     
