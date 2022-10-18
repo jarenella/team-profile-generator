@@ -42,6 +42,12 @@ All contributions to this project are welcome. Send me a message if you have any
 
 ![alt text](./imgs/document-in-browser-screenshot.png)
 
+- A video example of this projects available Jest testing
+- https://drive.google.com/file/d/1n9AM0Gx9sBd_f-DRyQR64SXsSgGpMuqO/view
+
+- A video example of how to use this project
+- https://drive.google.com/file/d/1BbAdkIJK3YTkKzjuXMbCxwdYuJ1kjG_F/view
+
 # License
     
 - [MIT] https://www.mit.edu/~amini/LICENSE.md
