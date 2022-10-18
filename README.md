@@ -40,9 +40,13 @@ All contributions to this project are welcome. Send me a message if you have any
 
 - A document generated from the answers to these prompts (More cards can be added).
 
-![alt text](./imgs/document-in-browser-screenshot.png)
+![A styled full page opened in Google Chrome which was generated through this project](./imgs/document-in-browser-screenshot.png)
 
-- A video example of this projects available Jest testing
+- Jest testing available with this project for QA purposes
+
+![A command line with successfully passed Jest tests](./imgs/jest-tests.png)
+
+- A video example of this project's available Jest testing
 - https://drive.google.com/file/d/1n9AM0Gx9sBd_f-DRyQR64SXsSgGpMuqO/view
 
 - A video example of how to use this project
